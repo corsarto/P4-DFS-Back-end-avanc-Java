@@ -43,4 +43,24 @@ class ProjectControllerTests {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.name").value("Isolation double vitrage"));
     }
+
+    @Test
+    void shouldRejectProjectWithoutBudget() throws Exception {
+        String payload = "{\"name\":\"Projet test liste\",\"owner\":\"Sophie\",\"description\":\"Travaux complémentaires\",\"impact\":\"Très bon\",\"status\":\"PLANNED\"}";
+        mockMvc.perform(post("/api/projects")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(payload))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.budget").value("Le budget est obligatoire"));
+    }
+
+    @Test
+    void shouldRejectNegativeBudget() throws Exception {
+        String payload = "{\"name\":\"Projet test liste\",\"owner\":\"Sophie\",\"budget\": -5,\"description\":\"Travaux complémentaires\",\"impact\":\"Très bon\",\"status\":\"PLANNED\"}";
+        mockMvc.perform(post("/api/projects")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(payload))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.budget").value("Le budget doit être positif"));
+    }
 }
