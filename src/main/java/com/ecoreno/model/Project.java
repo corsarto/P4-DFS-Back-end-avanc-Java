@@ -1,6 +1,7 @@
 package com.ecoreno.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 public class Project {
@@ -14,7 +15,8 @@ public class Project {
     private String owner;
 
     @Positive(message = "Le budget doit être positif")
-    private double budget;
+    @NotNull(message = "Le budget est obligatoire")
+    private Double budget;
 
     private String description;
     private String impact = "Impact estimé à calculer";
@@ -23,7 +25,7 @@ public class Project {
     public Project() {
     }
 
-    public Project(Long id, String name, String owner, double budget, String description, String impact, ProjectStatus status) {
+    public Project(Long id, String name, String owner, Double budget, String description, String impact, ProjectStatus status) {
         this.id = id;
         this.name = name;
         this.owner = owner;
@@ -39,8 +41,8 @@ public class Project {
     public void setName(String name) { this.name = name; }
     public String getOwner() { return owner; }
     public void setOwner(String owner) { this.owner = owner; }
-    public double getBudget() { return budget; }
-    public void setBudget(double budget) { this.budget = budget; }
+    public Double getBudget() { return budget; }
+    public void setBudget(Double budget) { this.budget = budget; }
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
     public String getImpact() { return impact; }

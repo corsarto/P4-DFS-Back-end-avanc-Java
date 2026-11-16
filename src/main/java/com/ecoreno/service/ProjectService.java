@@ -16,8 +16,8 @@ public class ProjectService {
     private final AtomicLong sequence = new AtomicLong(1);
 
     public ProjectService() {
-        projects.add(new Project(sequence.getAndIncrement(), "Rénovation cuisine", "Claire", 8500, "Modernisation d’une cuisine éco-responsable", "Faible émission", ProjectStatus.IN_PROGRESS));
-        projects.add(new Project(sequence.getAndIncrement(), "Isolation toiture", "Julien", 12000, "Amélioration thermique d’un logement", "Économie d’énergie", ProjectStatus.PLANNED));
+        projects.add(new Project(sequence.getAndIncrement(), "Rénovation cuisine", "Claire", 8500.00, "Modernisation d’une cuisine éco-responsable", "Faible émission", ProjectStatus.IN_PROGRESS));
+        projects.add(new Project(sequence.getAndIncrement(), "Isolation toiture", "Julien", 12000.00, "Amélioration thermique d’un logement", "Économie d’énergie", ProjectStatus.PLANNED));
     }
 
     public List<Project> findAll() {
