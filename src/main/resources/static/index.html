@@ -137,13 +137,27 @@
         projects.forEach((project) => {
           const item = document.createElement('article');
           item.className = 'project-item';
-          item.innerHTML = `
-            <h3>${project.name}</h3>
-            <p class="muted">Client : ${project.owner}</p>
-            <p>Budget : ${project.budget} €</p>
-            <p>Description : ${project.description || 'À compléter'}</p>
-            <p>Statut : ${project.status || 'PLANNED'}</p>
-          `;
+
+          const title = document.createElement('h3');
+          title.textContent = project.name;
+          item.appendChild(title);
+
+          const owner = document.createElement('p');
+          owner.textContent = 'Client : ' + project.owner;
+          owner.className = 'muted';
+          item.appendChild(owner);
+
+          const budget = document.createElement('p');
+          budget.textContent = 'Budget : ' + project.budget + ' €';
+          item.appendChild(budget);
+
+          const description = document.createElement('p');
+          description.textContent = 'Description : ' + (project.description || 'À compléter');
+          item.appendChild(description);
+
+          const status = document.createElement('p');
+          status.textContent = 'Statut : ' + (project.status || 'PLANNED');
+          item.appendChild(status);
           list.appendChild(item);
         });
       }

@@ -22,6 +22,7 @@ mvn spring-boot:run
 ```
 
 L’API sera disponible sur http://localhost:8080/api/projects.
+Le projet frontend sur http://localhost:8080.
 
 ## Fonctionnalités de base
 
