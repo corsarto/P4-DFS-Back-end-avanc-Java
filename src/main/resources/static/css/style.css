@@ -6,7 +6,7 @@
   --muted: #5f7a6d;
   --accent: #2f7d5b;
   --accent-dark: #215c43;
-  --border: #dbe8e0;
+  --border: #6aa07a;
   --error: #a11b00;
 }
 * { box-sizing: border-box; }
@@ -15,8 +15,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
   color: var(--text);
-}
-.page {
   max-width: 1100px;
   margin: 0 auto;
   padding: 24px;
@@ -69,7 +67,8 @@ button:hover { background: var(--accent-dark); }
 .msg-error:not(:empty)::before { content: "Erreur : "; }
 input[aria-invalid="true"] { border-color: var(--error); }
 .muted { color: var(--muted); font-size: 0.95rem; }
+.required-mark { color: var(--error); }
 @media (max-width: 760px) {
   .grid { grid-template-columns: 1fr; }
-  .page { padding: 16px; }
+  body { padding: 16px; }
 }

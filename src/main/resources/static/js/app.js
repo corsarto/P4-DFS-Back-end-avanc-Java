@@ -1,5 +1,10 @@
 const list = document.getElementById('project-list');
 const form = document.getElementById('project-form');
+const STATUS_LABELS = {
+  PLANNED: 'Planifié',
+  IN_PROGRESS: 'En cours',
+  COMPLETED: 'Terminé'
+};
 
 async function loadProjects() {
   const response = await fetch('/api/projects');
@@ -33,7 +38,7 @@ async function loadProjects() {
     item.appendChild(description);
 
     const status = document.createElement('p');
-    status.textContent = 'Statut : ' + (project.status || 'PLANNED');
+    status.textContent = 'Statut : ' + (STATUS_LABELS[project.status] || project.status || STATUS_LABELS.PLANNED);
     item.appendChild(status);
     list.appendChild(item);
   });
@@ -63,6 +68,7 @@ form.addEventListener('submit', async (event) => {
       document.getElementById(field + '-error').textContent = message;
       document.getElementById(field).setAttribute('aria-invalid', 'true');
     }
+    form.querySelector('[aria-invalid="true"]')?.focus();
   }
 });
 

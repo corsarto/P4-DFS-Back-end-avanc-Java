@@ -9,25 +9,25 @@
     <script src="js/app.js" defer></script>
   </head>
   <body>
-    <main class="page">
-      <header>
-        <h1>EcoReno</h1>
-        <p>Suivez vos projets de rénovation écologique avec une interface simple et accessible.</p>
-      </header>
-
+    <header>
+      <h1>EcoReno</h1>
+      <p>Suivez vos projets de rénovation écologique avec une interface simple et accessible.</p>
+    </header>
+    <main>
       <section class="grid" aria-label="Gestion des projets">
         <div class="card">
           <h2>Créer un projet</h2>
+          <p>Les champs marqués <span class="required-mark">*</span> sont obligatoires.</p>
           <form id="project-form" novalidate>
-            <label for="name">Nom du projet</label>
+            <label for="name">Nom du projet <span class="required-mark" aria-hidden="true">*</span></label>
             <input id="name" name="name" aria-describedby="name-error" required />
             <p id="name-error" class="msg-error" aria-live="polite"></p>
 
-            <label for="owner">Nom du client</label>
+            <label for="owner">Nom du client <span class="required-mark" aria-hidden="true">*</span></label>
             <input id="owner" name="owner" aria-describedby="owner-error" required />
             <p id="owner-error" class="msg-error" aria-live="polite"></p>
 
-            <label for="budget">Budget</label>
+            <label for="budget">Budget <span class="required-mark" aria-hidden="true">*</span></label>
             <input id="budget" name="budget" type="number" aria-describedby="budget-error" required min="1" />
             <p id="budget-error" class="msg-error" aria-live="polite"></p>
 
