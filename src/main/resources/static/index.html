@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Interface simple pour gérer des projets EcoReno" />
-    <title>EcoReno</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/app.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <h1>EcoReno</h1>
-      <p>Suivez vos projets de rénovation écologique avec une interface simple et accessible.</p>
-    </header>
-    <main>
-      <section class="grid" aria-label="Gestion des projets">
-        <div class="card">
-          <h2>Créer un projet</h2>
-          <p>Les champs marqués <span class="required-mark">*</span> sont obligatoires.</p>
-          <form id="project-form" novalidate>
-            <label for="name">Nom du projet <span class="required-mark" aria-hidden="true">*</span></label>
-            <input id="name" name="name" aria-describedby="name-error" required />
-            <p id="name-error" class="msg-error" aria-live="polite"></p>
 
-            <label for="owner">Nom du client <span class="required-mark" aria-hidden="true">*</span></label>
-            <input id="owner" name="owner" aria-describedby="owner-error" required />
-            <p id="owner-error" class="msg-error" aria-live="polite"></p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interface simple pour gérer des projets EcoReno" />
+  <title>EcoReno</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
 
-            <label for="budget">Budget <span class="required-mark" aria-hidden="true">*</span></label>
-            <input id="budget" name="budget" type="number" aria-describedby="budget-error" required min="1" />
-            <p id="budget-error" class="msg-error" aria-live="polite"></p>
+<body>
+  <header>
+    <h1>EcoReno</h1>
+    <p>Suivez vos projets de rénovation écologique avec une interface simple et accessible.</p>
+  </header>
+  <main>
+    <section class="grid" aria-label="Gestion des projets">
+      <div class="card">
+        <h2>Créer un projet</h2>
+        <p>Les champs marqués <span class="required-mark">*</span> sont obligatoires.</p>
+        <form id="project-form" novalidate>
+          <label for="name">Nom du projet <span class="required-mark" aria-hidden="true">*</span></label>
+          <input id="name" name="name" aria-describedby="name-error" required />
+          <p id="name-error" class="msg-error" aria-live="polite"></p>
 
-            <label for="description">Description</label>
-            <textarea id="description" name="description" rows="3"></textarea>
+          <label for="owner">Nom du client <span class="required-mark" aria-hidden="true">*</span></label>
+          <input id="owner" name="owner" aria-describedby="owner-error" required />
+          <p id="owner-error" class="msg-error" aria-live="polite"></p>
 
-            <label for="status">Statut</label>
-            <select id="status" name="status">
-              <option value="PLANNED">Planifié</option>
-              <option value="IN_PROGRESS">En cours</option>
-              <option value="COMPLETED">Terminé</option>
-            </select>
-            <p id="form-error" class="msg-error" aria-live="polite"></p>
-            <button type="submit">Ajouter</button>
-          </form>
-        </div>
+          <label for="budget">Budget <span class="required-mark" aria-hidden="true">*</span></label>
+          <input id="budget" name="budget" type="number" aria-describedby="budget-error" required min="1" />
+          <p id="budget-error" class="msg-error" aria-live="polite"></p>
 
-        <div class="card">
-          <h2>Projets récents</h2>
-          <div id="project-list" class="project-list" aria-live="polite"></div>
-        </div>
-      </section>
-    </main>
-  </body>
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="3"></textarea>
+
+          <label for="status">Statut</label>
+          <select id="status" name="status">
+            <option value="PLANNED">Planifié</option>
+            <option value="IN_PROGRESS">En cours</option>
+            <option value="COMPLETED">Terminé</option>
+          </select>
+          <p id="form-error" class="msg-error" aria-live="polite"></p>
+          <button type="submit">Ajouter</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Projets récents</h2>
+        <div id="project-list" class="project-list" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+</body>
+
 </html>
