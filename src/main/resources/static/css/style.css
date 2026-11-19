@@ -96,6 +96,7 @@ button:hover {
   border-radius: 12px;
   padding: 12px;
   background: #fbfdfb;
+  overflow-wrap: anywhere;
 }
 
 .msg-error {
