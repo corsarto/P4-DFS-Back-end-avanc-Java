@@ -41,9 +41,19 @@ Le projet frontend sur http://localhost:8080.
 - src/main/java/com/ecoreno/exception : exceptions métier
 - src/test/java : tests de base
 
-## Conseils pour l’étudiant
+## API
 
-- Commencez par comprendre la structure de l’API avant d’ajouter des fonctionnalités.
-- Regardez la séparation entre contrôleur, service et modèle.
-- Utilisez les tests comme point de validation.
-- Restez attentif à la qualité du code et à l’accessibilité si vous ajoutez une interface.
+- GET - /api/projects - Succès: 200 
+- GET - /api/projects/{id} - Succès: 200 - Erreurs: 404
+- POST - /api/projects - Succès: 201 - Erreurs: 400
+- PUT - /api/projects/{id} - Succès: 200 - Erreurs: 400, 404
+
+Format des erreurs:
+
+- 400: { "nomDuChamp": "message" }
+- 404: { "error": "message" }
+
+## Choix techniques
+
+- Formulaire en `novalidate` : les messages d'erreur viennent uniquement de l'API (source unique, affichage accessible).
+
